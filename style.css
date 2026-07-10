@@ -1,0 +1,215 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #0b0e1a 0%, #1a1f33 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Canvas confetti di latar belakang */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 48px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.8rem;
+}
+
+h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f9d976, #f39c12, #e74c3c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  text-shadow: 0 0 30px rgba(243, 156, 18, 0.25);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 30px rgba(243, 156, 18, 0.25); }
+  50% { text-shadow: 0 0 60px rgba(243, 156, 18, 0.6); }
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 2px;
+}
+
+/* Grid foto */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0.5rem 0;
+}
+
+.photo-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.photo-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-label {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.message {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.2rem 1.8rem;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Tombol kejutan */
+#surpriseBtn {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(247, 151, 30, 0.35);
+  letter-spacing: 1px;
+}
+
+#surpriseBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 36px rgba(247, 151, 30, 0.6);
+}
+
+#surpriseBtn:active {
+  transform: scale(0.96);
+}
+
+#surpriseBox {
+  margin-top: 0.5rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  animation: fadePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 400px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadePop {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 2.5rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .photo-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+  .photo-card img {
+    height: 220px;
+  }
+  .message {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  #surpriseBtn {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+  }
+  .hero {
+    padding: 1.8rem 1rem;
+  }
+}
